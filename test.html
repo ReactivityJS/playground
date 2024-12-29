@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ReactivityJS Playground</title>
         <script type="module">
-            import { Signal } from '//raw.githack.com/ReactivityJS/playground/main/mjs/Signal.mjs'
-            import { Reactive } from '//raw.githack.com/ReactivityJS/playground/main/mjs/Reactive.mjs'
+            import { Signal } from './mjs/Signal.mjs'
+            import { Reactive } from './mjs/Reactive.mjs'
 
             window.regexpTopicMatcher = ((replacements) => (topic, matcher) => topic === matcher || new RegExp('^' + matcher.replace(/[\.+\*\?]/g, m => replacements[m]) + '$').test(topic))({ '.': '\\.', '+': '\\.[=+#~\-\\w]+', '*': '.*', '?': '(\\.[=+#~\-\\w]+)?' })
             window.Signal = Signal

@@ -1,4 +1,4 @@
-import { Signal } from '//raw.githack.com/ReactivityJS/playground/main/mjs/Signal.mjs'
+import { Signal } from './mjs/Signal.mjs'
 
 const 
 ReactiveHandler = (name, Event) => ({
