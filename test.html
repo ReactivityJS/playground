@@ -42,5 +42,31 @@ data.$on((value, property, topic, action, oldValue, target) => console.log(`List
 data.app1.name = "Bum!"
             </pre>
         </div>
+        <h2>SEA</h2>
+        <div>
+            <p>Explore as "SEA" in js console</p>
+            <pre>
+SEA.pair()
+SEA.uuid()
+
+SEA.sign()
+SEA.verify()
+
+SEA.encrypt()
+SEA.decrypt()
+SEA.secret()
+SEA.passphrase()
+
+SEA.exportKey()
+SEA.importKey()
+SEA.restore()
+SEA.backup()
+
+user = new SEA.User(await SEA.pair())
+
+contactPair = await SEA.pair()
+contact = user.contact(contactPair.pub, contactPair.epub)
+            </pre>
+        </div>
     </body>
 </html>
