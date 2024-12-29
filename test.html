@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ReactivityJS Playground</title>
+        <script type="module">
+            import { Signal } from '//raw.githack.com/ReactivityJS/playground/main/mjs/Signal.mjs'
+            import { Reactive } from '//raw.githack.com/ReactivityJS/playground/main/mjs/Reactive.mjs'
+
+            window.regexpTopicMatcher = ((replacements) => (topic, matcher) => topic === matcher || new RegExp('^' + matcher.replace(/[\.+\*\?]/g, m => replacements[m]) + '$').test(topic))({ '.': '\\.', '+': '\\.[=+#~\-\\w]+', '*': '.*', '?': '(\\.[=+#~\-\\w]+)?' })
+            window.Signal = Signal
+            window.Reactive = Reactive
+        </script>
+    </head>
+    <body>
+        <h1>ReactivityJS Playground</h1>
+        <h2>Reactive()</h2>
+        <div>
+            <pre>
+// create Reactive data
+data = {}   // empty start...
+data = { app1: { name: "MyApp", version: 1, author: "me" }, members: [{ id: 1, name: "Person1" }, { id: 1, name: "Person1" }] } // existing data...
+ReactiveRootName = 'R'
+signalName = 'R:Signal'
+eve = Signal(signalName, regexpTopicMatcher)  // need a regexp topic machter...
+opts = [ data, ReactiveRootName, signalName, eve ]
+data = Reactive(...opts)
+
+ 
+// add listener to "data.app"...
+data.app1.$on((value, property, topic, action, oldValue, target) => console.log(`Listener property="${property}" action="${action}" topic="${topic}"`, value, property, topic, action, oldValue, target)) // default property "?" -> object and optional properties too
+data.app1.$on((value, property, topic, action, oldValue, target) => console.log(`Listener property="${property}" action="${action}" topic="${topic}"`, value, property, topic, action, oldValue, target), 'name')
+
+// add wildcard any listener...
+data.$on((value, property, topic, action, oldValue, target) => console.log(`Listener property="${property}" action="${action}" topic="${topic}"`, value, property, topic, action, oldValue, target), '*')
+ 
+// change data to trigger listeners...
+data.app1.name = "Bum!"
+            </pre>
+        </div>
+    </body>
+</html>
