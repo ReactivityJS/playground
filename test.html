@@ -7,9 +7,12 @@
         <script type="module">
             import { Signal } from './mjs/Signal.mjs'
             import { Reactive } from './mjs/Reactive.mjs'
+            import * as SEA from './mjs/SEA.mjs'
+
+            window.Signal = Signal
+            window.SEA = SEA
 
             window.regexpTopicMatcher = ((replacements) => (topic, matcher) => topic === matcher || new RegExp('^' + matcher.replace(/[\.+\*\?]/g, m => replacements[m]) + '$').test(topic))({ '.': '\\.', '+': '\\.[=+#~\-\\w]+', '*': '.*', '?': '(\\.[=+#~\-\\w]+)?' })
-            window.Signal = Signal
             window.Reactive = Reactive
         </script>
     </head>

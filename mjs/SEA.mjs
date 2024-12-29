@@ -4,7 +4,7 @@
  */
 
 // import needed convert helpers...
-import { StrToUint8, Uint8ToStr, AbToB64, B64ToAb, ObjToB64, B64ToObj, StrToAb, AbToStr, B64ToStr, StrToB64, ObjToJson, JsonToObj } from './conv.mjs'
+import { StrToUint8, Uint8ToStr, AbToB64, B64ToAb, ObjToB64, B64ToObj, StrToAb, AbToStr, B64ToStr, StrToB64, ObjToJson, JsonToObj } from './DataTypeConverter.mjs'
 
 const
 cryptoSubtle = globalThis.crypto.subtle,
