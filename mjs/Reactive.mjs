@@ -1,4 +1,4 @@
-import { Signal } from './mjs/Signal.mjs'
+import { Signal } from './Signal.mjs'
 
 const 
 ReactiveHandler = (name, Event) => ({
