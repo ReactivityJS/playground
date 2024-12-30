@@ -266,7 +266,7 @@ User = class {
             this.epubKey = keypair.epub
             this.pubKey = keypair.pub
         }
-        ;(async () => {
+        return (async () => {
             if(typeof keypair === 'string') {
                 // import an backuped pair...
                 keypair = await restore(JSON.parse(keypair))
@@ -285,6 +285,7 @@ User = class {
             this.pub = await exportKey(keypair.pub)
             this.epub = await exportKey(keypair.epub)
             Object.freeze(this)
+            return this
         })()
     }
 
