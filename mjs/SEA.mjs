@@ -284,8 +284,7 @@ User = class {
             }
             this.pub = await exportKey(keypair.pub)
             this.epub = await exportKey(keypair.epub)
-            Object.freeze(this)
-            return this
+            return Object.freeze(this)
         })()
     }
 
